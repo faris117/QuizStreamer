@@ -1,0 +1,38 @@
+.auth-container {
+    max-width: 400px;
+    padding: 2rem;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    text-align: center;
+    color: black;
+  
+    /* NEW center on screen */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .auth-container input {
+    width: 100%;
+    padding: 0.75rem;
+    margin-top: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  .auth-container button {
+    margin-top: 1rem;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    background: #007bff;
+    color: white;
+    cursor: pointer;
+  }
+  .toggle-link {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: #007bff;
+    cursor: pointer;
+  }
+  
+  
