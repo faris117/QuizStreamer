@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import "./QuizDetailForm.css";
-
+import pic from "../assets/react.svg" 
 interface QuizFormData {
   title: string;
   category: string;
@@ -10,6 +10,21 @@ interface QuizFormData {
 }
 
 export default function QuizDetailForm() {
+  const [imageFile,setImageFile]=useState<File>()
+  const [imageFileUrl,setImageFileUrl]=useState("")
+  const imageFileRef=useRef<HTMLInputElement |null>(null)
+  const handleImage=()=>{
+    const files=imageFileRef.current?.files
+    if(files!=null && files.length>0){
+      setImageFile(files[0])
+      let url=URL.createObjectURL(files[0])
+      setImageFileUrl(url)
+    }
+  }
+  const triggerInput=()=>{
+    imageFileRef.current?.click()
+  }
+  
   const [formData, setFormData] = useState<QuizFormData>({
     title: "",
     category: "",
@@ -46,9 +61,18 @@ export default function QuizDetailForm() {
 
   return (
     <div className="create-quiz-container">
+     
       <form className="quiz-form" onSubmit={handleSubmit}>
+        
+      <img className="quiz-image" src={imageFileUrl?imageFileUrl:pic}  />
+      <div id="EditButtonRow">
+      <button id="EditButton" onClick={triggerInput}  >
+          <i className="material-icons">edit</i>
+      </button>
+      </div>
+      
         <h2>Create a New Quiz</h2>
-
+        <input type="file" ref={imageFileRef} onChange={handleImage} hidden={true}/>
         <label>
           Title:
           <input

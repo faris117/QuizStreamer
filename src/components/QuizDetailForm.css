@@ -3,7 +3,7 @@
     width: 100vw;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     padding-top: 100px;
     background-color: #05121f;
   }
@@ -17,7 +17,14 @@
     max-width: 500px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   }
-  
+
+  .quiz-image{
+    width: 80%;
+    max-width: 500px;
+    height: 200px;
+    box-shadow:#ccc;
+  }
+ 
   .quiz-form h2 {
     text-align: center;
     margin-bottom: 1.5rem;
@@ -61,4 +68,18 @@
   .quiz-form button:hover {
     background-color: #0056b3;
   }
-  
+
+  #EditButton{
+    max-width: 32px;
+    background-color:#fff;
+    color: #05121f;
+    
+  }
+  #EditButtonRow{
+    display: flex;
+    direction: rtl;
+  }
+
+  #EditButton::shadow{
+    border-color:white;
+  }
