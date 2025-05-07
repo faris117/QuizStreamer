@@ -6,6 +6,7 @@ import HomePage from "./components/HomePage";
 import CreateQuizPage from "./components/CreateQuizPage";
 import JoinQuizPage from "./components/JoinQuizPage";
 import ProfilePage from "./components/ProfilePage";
+import QuizViewPage from "./components/QuizViewPage";
 
 interface User {
   username: string;
@@ -25,6 +26,7 @@ export default function App() {
         <Route path="/create" element={<CreateQuizPage user={user} />} />
         <Route path="/join" element={<JoinQuizPage user={user} />} />
         <Route path="/profile" element={<ProfilePage user={user}/>}/>
+        <Route path="/view-quiz" element={<QuizViewPage username={user.username}/>}/>
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </Router>
