@@ -12,7 +12,7 @@ export default function AuthForm({ onLogin }: AuthFormProps) {
   const [password1, setPassword1] = useState("");
   //method to handle SignIn
   const handleSignIn=()=>{
-    alert("sign in")
+   //
   }
    //method to handle SignUp
   const handleSignUp=()=>{

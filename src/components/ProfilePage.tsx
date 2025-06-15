@@ -3,6 +3,10 @@ import { Link } from "react-router-dom";
 import "./ProfilePage.css";
 import pic from "../assets/image.png"
 import Navbar from "./NavBar";
+import QuizList from "./QuizList";
+import QuizCard from "./QuizCard";
+import { dummyQuizList } from "../Model/QuizFormData";
+
 
 interface Quiz {
   id: string;
@@ -19,8 +23,22 @@ interface ProfilePageProps {
   user: User;
 }
 
+interface QuizFormData {
+  imgUrl:string
+  title: string;
+  category: string;
+  date: string;
+  isPrivate: boolean;
+  description: string;
+}
+
 export default function ProfilePage({ user }: ProfilePageProps) {
-  const quizHistory: Quiz[] = [
+  // dummyData.ts
+
+
+
+
+  const quizDetails: Quiz[] = [
     { id: "1", title: "React Basics", date: "2025-04-10", score: 85 },
     { id: "2", title: "JavaScript Deep Dive", date: "2025-04-05", score: 92 },
     { id: "3", title: "CSS Challenge", date: "2025-04-01", score: 78 },
@@ -81,14 +99,20 @@ export default function ProfilePage({ user }: ProfilePageProps) {
         <section className="profile-section">
           <h3>🧾 Quiz History</h3>
           <ul className="quiz-history">
-            {quizHistory.map((quiz) => (
+            {quizDetails.map((quiz) => (
               <li key={quiz.id}>
                 <strong>{quiz.title}</strong> — {quiz.date} — Score: {quiz.score}%
               </li>
             ))}
           </ul>
         </section>
-
+        <section className="profile-section">
+          <h3>🧾 My Quiz</h3>
+          <br/>
+          <QuizList>{dummyQuizList.map((quiz, index) => (
+            <QuizCard key={index} quiz={quiz} />
+          ))}</QuizList>
+        </section>
         
 
         <Link to="/" className="back-link">← Back to Home</Link>

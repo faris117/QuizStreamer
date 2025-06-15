@@ -1,6 +1,8 @@
 import React, { useRef, useState } from "react";
 import "./QuizDetailForm.css";
-import pic from "../assets/react.svg" 
+import pic from "../assets/react.svg"
+import { quizCategories } from "../Model/QuizCategories"; 
+
 interface QuizFormData {
   title: string;
   category: string;
@@ -34,7 +36,7 @@ export default function QuizDetailForm() {
   });
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement|HTMLSelectElement>
   ) => {
     const { name, value, type } = e.target;
     if(type==="checkbox"){
@@ -43,7 +45,12 @@ export default function QuizDetailForm() {
             ...prev,
             [name]: type === "checkbox" ? checked : value,
           }));
-    }else{
+    }
+    else{
+      if(type==="select-one" && value==="default"){
+        console.log("select category")
+        return
+      }
         setFormData((prev) => ({
             ...prev,
             [name]: value,
@@ -86,13 +93,16 @@ export default function QuizDetailForm() {
 
         <label>
           Category:
-          <input
-            type="text"
-            name="category"
-            value={formData.category}
-            onChange={handleChange}
-            required
-          />
+          <select 
+          name="category"
+          onChange={handleChange}
+          required
+          className="w-full p-2 border rounded shadow "
+          >
+            <option value="default">Select Category</option>
+            {quizCategories.map((category,index)=><option value={category} key={index}>{category}</option>)}
+          </select>
+          
         </label>
 
         <label>

@@ -1,5 +1,6 @@
 import React from "react";
 import Navbar from "./NavBar";
+import ActionCard from "./ActionCard";
 
 interface Props {
   user: { username: string };
@@ -7,12 +8,12 @@ interface Props {
 
 export default function JoinQuizPage({ user }: Props) {
   return (
-    <div className="outer-container">
-        <div className="home-container">
-          <Navbar username={user.username}/>
-          <h2> Join Quiz Page</h2>
-         
+    <div className="w-screen min-h-screen flex flex-row justify-center item-center  px-8">
+        <Navbar username={user.username}/>
+        <div className="flex flex-row justify-center px-8">
+          
+
         </div>
-        </div>
+      </div>
   );
 }
